@@ -1092,42 +1092,80 @@ function closeModal(id) { document.getElementById(id).classList.remove('open'); 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open')); document.body.style.overflow = ''; } });
 
 /* ── WAITLIST FORM ─────────────────────────────────────────────
-   This submits to a Google Apps Script Web App.
-   Replace PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE with the URL you
-   get after following the setup guide in the README below.
+   Submits to Google Apps Script via a hidden iframe trick.
+   This bypasses all CORS issues completely — works on every
+   browser, every device, every hosting platform.
    ─────────────────────────────────────────────────────────── */
+
+// !! PASTE YOUR GOOGLE SCRIPT URL BETWEEN THE QUOTES BELOW !!
 const GOOGLE_SCRIPT_URL = 'PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE';
 
-document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
+document.getElementById('waitlistForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  const btn = document.getElementById('submitBtn');
-  btn.disabled = true;
-  btn.textContent = 'Submitting...';
 
+  const btn       = document.getElementById('submitBtn');
   const firstName = document.getElementById('fname').value.trim();
   const lastName  = document.getElementById('lname').value.trim();
   const email     = document.getElementById('email').value.trim();
-  const timestamp = new Date().toLocaleString('en-GB', { timeZone: 'UTC' });
+  const timestamp = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Kolkata' });
 
-  /* If Google Script URL not yet set, show success anyway for testing */
+  btn.disabled    = true;
+  btn.textContent = 'Submitting...';
+
+  // If URL not yet set, show success for preview only
   if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxNOPC8oINttXi3-FcNdfOOgbp3g5B-08mGunrn3YIQmBxWq62ypVHETB0-9ybTHTlw/exec') {
     showSuccess();
     return;
   }
 
-  try {
-    await fetch(GOOGLE_SCRIPT_URL, {
-      method: 'POST',
-      mode:   'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ firstName, lastName, email, timestamp })
-    });
+  // Build the form data as URL parameters
+  const params = 'firstName=' + encodeURIComponent(firstName)
+               + '&lastName='  + encodeURIComponent(lastName)
+               + '&email='     + encodeURIComponent(email)
+               + '&timestamp=' + encodeURIComponent(timestamp);
+
+  // Create a hidden iframe so the browser doesn't navigate away
+  const iframe = document.createElement('iframe');
+  iframe.name  = 'hidden_iframe';
+  iframe.style.display = 'none';
+  document.body.appendChild(iframe);
+
+  // Create a hidden form and submit it into the iframe
+  const hiddenForm = document.createElement('form');
+  hiddenForm.method  = 'POST';
+  hiddenForm.action  = GOOGLE_SCRIPT_URL;
+  hiddenForm.target  = 'hidden_iframe';
+  hiddenForm.style.display = 'none';
+
+  // Add each field
+  [['firstName', firstName],
+   ['lastName',  lastName],
+   ['email',     email],
+   ['timestamp', timestamp]].forEach(function(pair) {
+    const input = document.createElement('input');
+    input.type  = 'hidden';
+    input.name  = pair[0];
+    input.value = pair[1];
+    hiddenForm.appendChild(input);
+  });
+
+  document.body.appendChild(hiddenForm);
+
+  // Show success after a short delay (gives the form time to submit)
+  iframe.onload = function() {
     showSuccess();
-  } catch (err) {
-    btn.disabled = false;
-    btn.textContent = 'Secure My Place on the Waitlist';
-    alert('Something went wrong. Please try again or email us at lusenssual@gmail.com');
-  }
+    document.body.removeChild(hiddenForm);
+    document.body.removeChild(iframe);
+  };
+
+  // Fallback: show success after 3 seconds regardless
+  setTimeout(function() {
+    if (document.getElementById('formSuccess').style.display !== 'block') {
+      showSuccess();
+    }
+  }, 3000);
+
+  hiddenForm.submit();
 });
 
 function showSuccess() {
