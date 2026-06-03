@@ -1143,7 +1143,7 @@ document.getElementById('waitlistForm').addEventListener('submit', function(e) {
 
 // Save to Google Sheet via Apps Script (backup data capture)
 function saveToSheet(firstName, lastName, email, timestamp) {
-  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxPLACEHOLDER/exec';
+  const SHEET_URL = 'https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbxNOPC8oINttXi3-FcNdfOOgbp3g5B-08mGunrn3YIQmBxWq62ypVHETB0-9ybTHTlw/exec';
   if (SHEET_URL.includes('PLACEHOLDER')) return; // skip if not set
   const url = SHEET_URL
     + '?firstName=' + encodeURIComponent(firstName)
