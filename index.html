@@ -14,6 +14,9 @@
      ═══════════════════════════════════════════════════════ -->
 <script defer src="/_vercel/insights/script.js"></script>
 
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1091,13 +1094,14 @@ function openModal(id)  { document.getElementById(id).classList.add('open'); doc
 function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open')); document.body.style.overflow = ''; } });
 
-/* ── WAITLIST FORM ─────────────────────────────────────────────
-   Uses a GET request with URL parameters — the most reliable
-   method for Google Apps Script. No CORS issues whatsoever.
-   ─────────────────────────────────────────────────────────── */
+/* ── EMAILJS FORM SUBMISSION ───────────────────────────────
+   Sends two emails on every signup:
+   1. Notification to lusenssual@gmail.com (owner)
+   2. Thank you email to the person who signed up
+   ─────────────────────────────────────────────────────── */
 
-// !! PASTE YOUR GOOGLE SCRIPT URL BETWEEN THE QUOTES BELOW !!
-const GOOGLE_SCRIPT_URL = 'PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE';
+// Initialise EmailJS with your public key
+emailjs.init('CvSgUz-6sMNEWD0vA');
 
 document.getElementById('waitlistForm').addEventListener('submit', function(e) {
   e.preventDefault();
@@ -1111,31 +1115,44 @@ document.getElementById('waitlistForm').addEventListener('submit', function(e) {
   btn.disabled    = true;
   btn.textContent = 'Submitting...';
 
-  if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxNOPC8oINttXi3-FcNdfOOgbp3g5B-08mGunrn3YIQmBxWq62ypVHETB0-9ybTHTlw/exec') {
-    showSuccess();
-    return;
-  }
+  const templateParams = {
+    firstName : firstName,
+    lastName  : lastName,
+    email     : email,
+    timestamp : timestamp
+  };
 
-  // Send data as URL parameters via GET — works perfectly with Google Apps Script
-  const url = GOOGLE_SCRIPT_URL
+  // Send owner notification email
+  emailjs.send('service_fw5hn3h', 'template_c2n5ea5', templateParams)
+    .then(function() {
+      // Send customer thank you email
+      return emailjs.send('service_fw5hn3h', 'template_86e8ibq', templateParams);
+    })
+    .then(function() {
+      // Both emails sent — save to Google Sheet and show success
+      saveToSheet(firstName, lastName, email, timestamp);
+      showSuccess();
+    })
+    .catch(function(error) {
+      console.error('EmailJS error:', error);
+      // Even if email fails, try to save to sheet and show success
+      saveToSheet(firstName, lastName, email, timestamp);
+      showSuccess();
+    });
+});
+
+// Save to Google Sheet via Apps Script (backup data capture)
+function saveToSheet(firstName, lastName, email, timestamp) {
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxPLACEHOLDER/exec';
+  if (SHEET_URL.includes('PLACEHOLDER')) return; // skip if not set
+  const url = SHEET_URL
     + '?firstName=' + encodeURIComponent(firstName)
     + '&lastName='  + encodeURIComponent(lastName)
     + '&email='     + encodeURIComponent(email)
     + '&timestamp=' + encodeURIComponent(timestamp);
-
-  // Use an image tag trick — fires GET request with zero CORS issues
-  const img    = new Image();
-  img.onload   = function() { showSuccess(); };
-  img.onerror  = function() { showSuccess(); }; // still show success — script received it
-  img.src      = url;
-
-  // Fallback after 4 seconds
-  setTimeout(function() {
-    if (document.getElementById('formSuccess').style.display !== 'block') {
-      showSuccess();
-    }
-  }, 4000);
-});
+  const img  = new Image();
+  img.src    = url;
+}
 
 function showSuccess() {
   document.getElementById('waitlistForm').style.display  = 'none';
