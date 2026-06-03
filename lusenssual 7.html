@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUSENSSUAL — Rare Hair Oil</title>
+<meta name="description" content="LUSENSSUAL is an ultra-premium hair oil ritual crafted for those who demand the extraordinary. Join the exclusive waitlist.">
+
+<!-- ═══ VERCEL ANALYTICS ══════════════════════════════════════
+     No setup needed. No tracking ID. No configuration.
+     This activates automatically the moment you deploy
+     to Vercel. Traffic, page views, and visitor data will
+     appear in your Vercel project dashboard instantly.
+     ═══════════════════════════════════════════════════════ -->
+<script defer src="/_vercel/insights/script.js"></script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ─── RESET ─────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  /* ─── CUSTOM CURSOR ─────────────────────────────────── */
+  * { cursor: none !important; }
+  #cursor-dot {
+    position: fixed; top: 0; left: 0; z-index: 99999;
+    width: 8px; height: 8px;
+    background: #c9a96e;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, opacity 0.2s ease;
+  }
+  #cursor-ring {
+    position: fixed; top: 0; left: 0; z-index: 99998;
+    width: 36px; height: 36px;
+    border: 1px solid rgba(201,169,110,0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+  }
+  body:has(a:hover) #cursor-ring,
+  body:has(button:hover) #cursor-ring,
+  body:has(input:hover) #cursor-ring {
+    width: 56px; height: 56px;
+    border-color: rgba(201,169,110,1);
+  }
+
+  /* ─── TOKENS ─────────────────────────────────────────── */
+  :root {
+    --black:   #0a0a08;
+    --offblk:  #111110;
+    --deep:    #1a1a18;
+    --panel:   #222220;
+    --border:  rgba(201,169,110,0.18);
+    --gold:    #c9a96e;
+    --gold2:   #e8d5a3;
+    --cream:   #f5f0e8;
+    --muted:   rgba(245,240,232,0.45);
+    --ff-serif: 'Cormorant Garamond', Georgia, serif;
+    --ff-sans:  'Montserrat', sans-serif;
+  }
+
+  /* ─── BASE ───────────────────────────────────────────── */
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: var(--ff-sans);
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE GRAIN OVERLAY ───────────────────────────── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    z-index: 0;
+    opacity: 0.025;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+  }
+
+  /* ─── UTILITY ────────────────────────────────────────── */
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+  .gold { color: var(--gold); }
+  .serif { font-family: var(--ff-serif); }
+  hr.rule { border: none; border-top: 1px solid var(--border); margin: 0; }
+  .tag {
+    display: inline-block;
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid var(--border);
+    padding: 5px 14px; font-weight: 400;
+  }
+
+  /* ─── SCROLL ANIMATIONS ──────────────────────────────── */
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal-left.visible { opacity: 1; transform: none; }
+  .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal-right.visible { opacity: 1; transform: none; }
+
+  /* ─── NAV ────────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 9000;
+    padding: 24px 0;
+    transition: background 0.4s ease, padding 0.4s ease;
+  }
+  nav.scrolled { background: rgba(10,10,8,0.92); backdrop-filter: blur(12px); padding: 16px 0; }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: var(--ff-serif); font-size: 22px; font-weight: 400;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 36px; }
+  .nav-links a {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none; transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--black); background: var(--gold); padding: 10px 22px;
+    text-decoration: none; font-weight: 400;
+    transition: background 0.3s ease;
+  }
+  .nav-cta:hover { background: var(--gold2); }
+
+  /* ─── HERO ───────────────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 140px 0 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 70% 50%, rgba(201,169,110,0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 50% at 20% 80%, rgba(201,169,110,0.04) 0%, transparent 60%);
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .hero-eyebrow {
+    font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 28px; display: flex; align-items: center; gap: 16px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 40px; height: 1px; background: var(--gold); flex-shrink: 0;
+  }
+  h1 {
+    font-family: var(--ff-serif); font-size: clamp(56px, 7vw, 96px);
+    font-weight: 300; line-height: 0.95; letter-spacing: -0.01em;
+    color: var(--cream); margin-bottom: 32px;
+  }
+  h1 em { font-style: italic; color: var(--gold); }
+  .hero-desc {
+    font-size: 13px; letter-spacing: 0.06em; color: var(--muted);
+    max-width: 380px; line-height: 2; margin-bottom: 48px;
+  }
+  .hero-actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-block;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--black); background: var(--gold); padding: 16px 40px;
+    text-decoration: none; font-weight: 400; border: 1px solid var(--gold);
+    transition: all 0.3s ease; font-family: var(--ff-sans);
+  }
+  .btn-primary:hover { background: transparent; color: var(--gold); }
+  .btn-ghost {
+    display: inline-block;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); background: transparent; padding: 16px 0;
+    text-decoration: none; font-weight: 400;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .btn-ghost:hover { color: var(--cream); border-color: var(--cream); }
+
+  /* Hero image placeholder */
+  .hero-visual {
+    position: relative; height: 600px;
+  }
+  .hero-img-main {
+    position: absolute; inset: 0;
+    background: linear-gradient(145deg, #1e1c17 0%, #2a2820 40%, #1a1810 100%);
+    border: 1px solid var(--border);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 20px;
+  }
+  .hero-img-main::before {
+    content: '';
+    position: absolute; top: 16px; right: 16px; bottom: 16px; left: 16px;
+    border: 1px solid rgba(201,169,110,0.08);
+  }
+  .placeholder-icon {
+    width: 80px; height: 80px; border: 1px solid var(--border);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  }
+  .placeholder-icon svg { width: 36px; height: 36px; stroke: var(--gold); fill: none; stroke-width: 1; opacity: 0.6; }
+  .placeholder-label {
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(201,169,110,0.4);
+  }
+  .hero-img-accent {
+    position: absolute; bottom: -24px; right: -24px;
+    width: 180px; height: 240px;
+    background: linear-gradient(160deg, #23211c 0%, #181610 100%);
+    border: 1px solid var(--border);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px;
+  }
+  .hero-stats {
+    display: flex; gap: 48px; margin-top: 48px;
+  }
+  .stat-num {
+    font-family: var(--ff-serif); font-size: 42px; font-weight: 300;
+    color: var(--gold); letter-spacing: -0.02em; line-height: 1;
+  }
+  .stat-label {
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); margin-top: 4px;
+  }
+
+  /* ─── MARQUEE STRIP ──────────────────────────────────── */
+  .marquee-wrap {
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    overflow: hidden; padding: 18px 0; background: var(--offblk);
+  }
+  .marquee-track {
+    display: flex; gap: 0; white-space: nowrap;
+    animation: marquee 28s linear infinite;
+  }
+  .marquee-item {
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); padding: 0 32px;
+    display: flex; align-items: center; gap: 32px;
+  }
+  .marquee-item::after {
+    content: '◆'; font-size: 6px; color: var(--gold);
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ─── ABOUT SECTION ──────────────────────────────────── */
+  #about { padding: 140px 0; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 120px; align-items: center; }
+  .about-visual {
+    position: relative; height: 580px;
+  }
+  .about-img-a {
+    position: absolute; top: 0; left: 0; right: 80px; bottom: 80px;
+    background: linear-gradient(135deg, #1d1b16, #2c2921);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .about-img-b {
+    position: absolute; bottom: 0; right: 0;
+    width: 200px; height: 240px;
+    background: linear-gradient(135deg, #14130f, #221f19);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .section-eyebrow {
+    font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+  }
+  h2 {
+    font-family: var(--ff-serif); font-size: clamp(36px, 4.5vw, 62px);
+    font-weight: 300; line-height: 1.05; color: var(--cream);
+    margin-bottom: 28px;
+  }
+  h2 em { font-style: italic; color: var(--gold); }
+  .body-text {
+    font-size: 13px; letter-spacing: 0.05em; line-height: 2;
+    color: var(--muted); max-width: 480px;
+  }
+  .divider-line {
+    width: 48px; height: 1px; background: var(--gold); margin: 32px 0;
+  }
+
+  /* ─── INGREDIENTS / RITUAL ───────────────────────────── */
+  #ritual { padding: 140px 0; background: var(--offblk); }
+  .ritual-header { text-align: center; margin-bottom: 80px; }
+  .ritual-header h2 { max-width: 640px; margin: 0 auto 24px; }
+  .ritual-header p { max-width: 480px; margin: 0 auto; font-size: 13px; color: var(--muted); line-height: 2; }
+  .ingredients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+  .ingredients-grid .ingredient-card:last-child { grid-column: 2 / 3; }
+  .ingredient-card {
+    background: var(--offblk); padding: 52px 40px;
+    transition: background 0.4s ease;
+  }
+  .ingredient-card:hover { background: var(--deep); }
+  .ing-number {
+    font-family: var(--ff-serif); font-size: 72px; font-weight: 300;
+    color: rgba(201,169,110,0.1); line-height: 1; margin-bottom: -16px;
+    display: block; letter-spacing: -0.03em;
+  }
+  .ing-name {
+    font-family: var(--ff-serif); font-size: 28px; font-weight: 400;
+    color: var(--cream); margin-bottom: 16px;
+  }
+  .ing-origin {
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+  }
+  .ing-desc { font-size: 12px; color: var(--muted); line-height: 1.9; }
+
+  /* ─── THE PRODUCT ────────────────────────────────────── */
+  #product { padding: 160px 0; }
+  .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+  .product-visual {
+    height: 700px; position: relative;
+    background: linear-gradient(150deg, #1c1a14 0%, #232116 50%, #181611 100%);
+    border: 1px solid var(--border);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 24px;
+  }
+  .product-visual::after {
+    content: '';
+    position: absolute; inset: 20px;
+    border: 1px solid rgba(201,169,110,0.06);
+    pointer-events: none;
+  }
+  .product-badge {
+    position: absolute; top: 32px; left: 32px;
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid var(--border);
+    padding: 6px 14px;
+  }
+  .product-tagline {
+    position: absolute; bottom: 32px; right: 32px;
+    font-family: var(--ff-serif); font-size: 13px; font-style: italic;
+    color: rgba(201,169,110,0.4);
+  }
+  .product-features { list-style: none; margin: 40px 0; }
+  .product-features li {
+    font-size: 12px; letter-spacing: 0.07em; color: var(--muted);
+    padding: 16px 0; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 16px;
+  }
+  .product-features li::before {
+    content: '—'; color: var(--gold); flex-shrink: 0;
+  }
+  .price-block { margin: 40px 0; }
+  .price-label {
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 8px;
+  }
+  .price-value {
+    font-family: var(--ff-serif); font-size: 56px; font-weight: 300;
+    color: var(--cream); letter-spacing: -0.02em;
+  }
+  .price-value sup {
+    font-size: 24px; vertical-align: top; margin-top: 12px;
+    color: var(--gold);
+  }
+  .price-sub {
+    font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 0.1em;
+  }
+
+  /* ─── WAITLIST ───────────────────────────────────────── */
+  #waitlist {
+    padding: 160px 0;
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    position: relative; overflow: hidden;
+  }
+  #waitlist::before {
+    content: '';
+    position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(201,169,110,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .waitlist-inner { text-align: center; max-width: 640px; margin: 0 auto; }
+  .waitlist-inner h2 { font-size: clamp(40px, 5vw, 72px); margin-bottom: 20px; }
+  .waitlist-inner p { font-size: 13px; color: var(--muted); line-height: 2; margin-bottom: 52px; }
+  
+  /* The form below posts to Google Apps Script web app */
+  .waitlist-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-field {
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .form-field label {
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .form-field input {
+    background: transparent; border: 1px solid var(--border);
+    color: var(--cream); padding: 16px 20px;
+    font-family: var(--ff-sans); font-size: 13px; font-weight: 300;
+    letter-spacing: 0.05em; outline: none;
+    transition: border-color 0.3s;
+  }
+  .form-field input::placeholder { color: rgba(245,240,232,0.2); }
+  .form-field input:focus { border-color: var(--gold); }
+  .form-submit {
+    margin-top: 8px;
+    background: var(--gold); color: var(--black);
+    border: 1px solid var(--gold); padding: 18px 48px;
+    font-family: var(--ff-sans); font-size: 10px; font-weight: 400;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    transition: all 0.3s ease; width: 100%;
+  }
+  .form-submit:hover { background: transparent; color: var(--gold); }
+  .form-submit:disabled { opacity: 0.5; }
+  .form-note {
+    font-size: 10px; color: rgba(245,240,232,0.25); letter-spacing: 0.1em;
+    margin-top: 20px; line-height: 1.8;
+  }
+  .form-success {
+    display: none; text-align: center; padding: 40px;
+    border: 1px solid var(--border);
+  }
+  .form-success h3 {
+    font-family: var(--ff-serif); font-size: 36px; font-weight: 300;
+    color: var(--gold); margin-bottom: 12px;
+  }
+  .form-success p { font-size: 13px; color: var(--muted); }
+
+  /* ─── TESTIMONIALS / PRESS ───────────────────────────── */
+  #press { padding: 120px 0; }
+  .press-header { text-align: center; margin-bottom: 64px; }
+  .press-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+  .press-card {
+    background: var(--black); padding: 48px 40px;
+  }
+  .press-quote {
+    font-family: var(--ff-serif); font-size: 20px; font-weight: 300; font-style: italic;
+    color: var(--cream); line-height: 1.6; margin-bottom: 28px;
+  }
+  .press-source {
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
+  }
+  .press-author { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+  /* ─── JOURNAL / BRAND PHILOSOPHY ────────────────────── */
+  #philosophy { padding: 140px 0; background: var(--offblk); }
+  .philosophy-grid { display: grid; grid-template-columns: 40px 1fr 1fr; gap: 80px; align-items: start; }
+  .philosophy-rotated {
+    writing-mode: vertical-rl; text-orientation: mixed;
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); transform: rotate(180deg); padding-top: 4px;
+    white-space: nowrap;
+  }
+  .phil-text h2 { margin-bottom: 28px; }
+  .phil-text p { font-size: 13px; color: var(--muted); line-height: 2; }
+  .phil-aside {
+    border-left: 1px solid var(--border); padding-left: 40px; padding-top: 8px;
+  }
+  .phil-aside blockquote {
+    font-family: var(--ff-serif); font-size: 26px; font-weight: 300; font-style: italic;
+    color: var(--cream); line-height: 1.5; margin-bottom: 24px;
+  }
+  .phil-aside cite { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+  .phil-pillars { margin-top: 48px; display: flex; flex-direction: column; gap: 24px; }
+  .pillar { display: flex; gap: 20px; align-items: flex-start; }
+  .pillar-num {
+    font-family: var(--ff-serif); font-size: 28px; font-weight: 300; color: rgba(201,169,110,0.3);
+    flex-shrink: 0; line-height: 1; margin-top: 2px;
+  }
+  .pillar-title {
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--cream); margin-bottom: 6px;
+  }
+  .pillar-body { font-size: 12px; color: var(--muted); line-height: 1.8; }
+
+  /* ─── FULL-WIDTH VISUAL BREAK ────────────────────────── */
+  .visual-break {
+    height: 500px; background: var(--deep);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .visual-break-content { text-align: center; z-index: 1; }
+  .visual-break-content h2 {
+    font-size: clamp(44px, 7vw, 100px); font-weight: 300;
+    letter-spacing: 0.12em; color: rgba(245,240,232,0.06);
+    font-style: italic;
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  .vb-center-text {
+    font-family: var(--ff-serif); font-size: 24px; font-weight: 300; font-style: italic;
+    color: var(--gold); z-index: 2; position: relative;
+  }
+
+  /* ─── FOOTER ─────────────────────────────────────────── */
+  footer { background: var(--offblk); padding-top: 80px; }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px;
+    padding-bottom: 64px; border-bottom: 1px solid var(--border);
+  }
+  .footer-brand-logo {
+    font-family: var(--ff-serif); font-size: 28px; font-weight: 400;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream);
+    margin-bottom: 20px;
+  }
+  .footer-brand-desc { font-size: 12px; color: var(--muted); line-height: 1.9; max-width: 280px; margin-bottom: 28px; }
+  .footer-social { display: flex; gap: 16px; }
+  .social-link {
+    width: 36px; height: 36px; border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; color: var(--muted); font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .social-link:hover { border-color: var(--gold); color: var(--gold); }
+  .footer-col h4 {
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a {
+    font-size: 12px; color: var(--muted); text-decoration: none;
+    transition: color 0.3s; letter-spacing: 0.04em;
+  }
+  .footer-col ul li a:hover { color: var(--cream); }
+  .footer-bottom {
+    padding: 28px 0;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-copy { font-size: 11px; color: rgba(245,240,232,0.2); letter-spacing: 0.08em; }
+  .footer-legal-links { display: flex; gap: 24px; }
+  .footer-legal-links a {
+    font-size: 11px; color: rgba(245,240,232,0.2); text-decoration: none;
+    letter-spacing: 0.08em; transition: color 0.3s;
+  }
+  .footer-legal-links a:hover { color: var(--muted); }
+
+  /* ─── MODAL (Terms) ──────────────────────────────────── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 99000;
+    background: rgba(0,0,0,0.85); backdrop-filter: blur(6px);
+    align-items: flex-start; justify-content: center; padding: 60px 20px; overflow-y: auto;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: var(--offblk); border: 1px solid var(--border);
+    max-width: 800px; width: 100%; padding: 60px;
+    position: relative; max-height: 80vh; overflow-y: auto;
+  }
+  .modal-close {
+    position: absolute; top: 24px; right: 24px;
+    background: none; border: none; color: var(--muted);
+    font-size: 24px; line-height: 1; padding: 8px;
+    transition: color 0.3s;
+  }
+  .modal-close:hover { color: var(--cream); }
+  .modal-box h3 {
+    font-family: var(--ff-serif); font-size: 36px; font-weight: 300;
+    color: var(--cream); margin-bottom: 8px;
+  }
+  .modal-box h4 {
+    font-family: var(--ff-sans); font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); margin-top: 32px; margin-bottom: 12px;
+  }
+  .modal-box p { font-size: 12px; color: var(--muted); line-height: 1.9; margin-bottom: 12px; }
+  .modal-last-updated {
+    font-size: 10px; color: rgba(245,240,232,0.2); margin-bottom: 36px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ─── RESPONSIVE ─────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .container { padding: 0 24px; }
+    .hero-grid, .about-grid, .product-grid, .philosophy-grid { grid-template-columns: 1fr; }
+    .hero-grid { gap: 48px; }
+    .hero-visual { height: 400px; }
+    .hero-img-accent { display: none; }
+    .about-visual { height: 320px; }
+    .ingredients-grid, .press-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .philosophy-grid { grid-template-columns: 1fr; }
+    .philosophy-rotated { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- ═══════════════ NAV ═══════════════════════════════════ -->
+<nav id="mainNav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">Lusenssual</a>
+    <div class="nav-links">
+      <a href="#about">The Oil</a>
+      <a href="#ritual">Ritual</a>
+      <a href="#product">Product</a>
+      <a href="#philosophy">Philosophy</a>
+    </div>
+    <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow reveal">A New Era in Hair Luxury</div>
+        <h1 class="reveal" style="transition-delay:0.1s">
+          The <em>Rarest</em><br>Oil on<br>Earth
+        </h1>
+        <p class="hero-desc reveal" style="transition-delay:0.2s">
+          Centuries of botanical wisdom distilled into a single, transformative ritual. LUSENSSUAL is not a product — it is a declaration of intent toward the extraordinary.
+        </p>
+        <div class="hero-actions reveal" style="transition-delay:0.3s">
+          <a href="#waitlist" class="btn-primary">Secure Your Place</a>
+          <a href="#about" class="btn-ghost">Discover the Oil</a>
+        </div>
+        <div class="hero-stats reveal" style="transition-delay:0.4s">
+          <div>
+            <div class="stat-num">18</div>
+            <div class="stat-label">Rare Botanicals</div>
+          </div>
+          <div>
+            <div class="stat-num">5000</div>
+            <div class="stat-label">Years of Ayurveda</div>
+          </div>
+          <div>
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Hours of Softness</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual reveal-right" style="transition-delay:0.15s">
+        <div class="hero-img-main">
+          <div class="product-badge">Coming Soon</div>
+          <div class="placeholder-icon">
+            <svg viewBox="0 0 36 36"><path d="M18 4 C12 4 8 10 8 16 C8 22 12 28 18 32 C24 28 28 22 28 16 C28 10 24 4 18 4Z" /><line x1="18" y1="4" x2="18" y2="32"/><line x1="8" y1="16" x2="28" y2="16"/></svg>
+          </div>
+          <div class="placeholder-label">Product Photography — Coming Soon</div>
+          <div class="product-tagline">Lusenssual No. 1</div>
+        </div>
+        <div class="hero-img-accent">
+          <div class="placeholder-icon" style="width:44px;height:44px;">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+          </div>
+          <div class="placeholder-label" style="font-size:7px">Detail</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ MARQUEE ════════════════════════════════ -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="marquee-item">Ultra-Premium Hair Ritual</span>
+    <span class="marquee-item">18 Rare Botanicals</span>
+    <span class="marquee-item">Cold-Pressed &amp; Unrefined</span>
+    <span class="marquee-item">Proudly Made in India</span>
+    <span class="marquee-item">Rooted in Ayurveda</span>
+    <span class="marquee-item">Zero Synthetic Compounds</span>
+    <span class="marquee-item">Waitlist Now Open</span>
+    <span class="marquee-item">Ultra-Premium Hair Ritual</span>
+    <span class="marquee-item">18 Rare Botanicals</span>
+    <span class="marquee-item">Cold-Pressed &amp; Unrefined</span>
+    <span class="marquee-item">Proudly Made in India</span>
+    <span class="marquee-item">Rooted in Ayurveda</span>
+    <span class="marquee-item">Zero Synthetic Compounds</span>
+    <span class="marquee-item">Waitlist Now Open</span>
+  </div>
+</div>
+
+<!-- ═══════════════ ABOUT ══════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal-left">
+        <div class="about-img-a">
+          <div class="placeholder-label" style="font-size:8px">Editorial Ingredient Photography</div>
+        </div>
+        <div class="about-img-b">
+          <div class="placeholder-label" style="font-size:7px">Origin Story</div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-eyebrow">The Origin</div>
+        <h2>Born from <em>Roots</em><br>Refined by Tradition</h2>
+        <div class="divider-line"></div>
+        <p class="body-text">
+          LUSENSSUAL began not in a laboratory, but in a memory — the memory of hair that never needed fixing. Of women across generations in India who understood, long before modern science could confirm it, exactly which plants the scalp needs and in what measure. Their knowledge was not written in journals. It was passed through hands, through seasons, through ritual.
+        </p>
+        <p class="body-text" style="margin-top:20px">
+          We spent years working with Ayurvedic practitioners, botanical cultivators, and formulation scientists to translate that living wisdom into a single, extraordinary oil. The result is not a product born of trend or imitation — it is a tribute. Eighteen botanicals. One uncompromising formula. Proudly made in India.
+        </p>
+        <div style="margin-top:40px" class="tag">Established 2026 · Made in India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ RITUAL / INGREDIENTS ══════════════════ -->
+<section id="ritual">
+  <div class="container">
+    <div class="ritual-header reveal">
+      <div class="section-eyebrow" style="text-align:center">The Formula</div>
+      <h2>Seven Botanicals.<br>One <em>Transformative</em> Result.</h2>
+      <p>Every ingredient is selected for a singular purpose. Nothing decorative. Nothing superfluous. Each element earns its place through thousands of years of Ayurvedic wisdom and modern clinical validation.</p>
+    </div>
+    <div class="ingredients-grid">
+      <div class="ingredient-card reveal" style="transition-delay:0.0s">
+        <span class="ing-number">01</span>
+        <div class="ing-name">Cocos Nucifera</div>
+        <div class="ing-origin">Coconut · Cold-Pressed Base · Kerala, India</div>
+        <p class="ing-desc">The sacred foundation of every great Indian hair ritual. Cold-pressed from mature coconuts grown along the Kerala coast, this unrefined base oil penetrates the hair shaft at a molecular level — a feat no synthetic conditioning agent can replicate. Its lauric acid profile binds to hair protein, actively reducing breakage from within.</p>
+      </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.08s">
+        <span class="ing-number">02</span>
+        <div class="ing-name">Allium Cepa</div>
+        <div class="ing-origin">Onion · Red Variety Extract · North India</div>
+        <p class="ing-desc">The most clinically validated ingredient in modern Ayurvedic hair science. Rich in sulphur — the essential building block of keratin — onion extract has been shown in peer-reviewed studies to dramatically increase hair density and reduce shedding. Where science and tradition finally speak the same language.</p>
+      </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.16s">
+        <span class="ing-number">03</span>
+        <div class="ing-name">Eclipta Alba</div>
+        <div class="ing-origin">Bhringraj · The King of Herbs · Ayurvedic Grade</div>
+        <p class="ing-desc">Called Kesharaj — "ruler of the hair" — in ancient Ayurvedic texts, Bhringraj has been used for millennia to stimulate scalp circulation and awaken dormant follicles. Its wedelolactone compounds work at the cellular level, extending each hair's active growth phase and commanding the scalp back into productivity.</p>
+      </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.0s">
+        <span class="ing-number">04</span>
+        <div class="ing-name">Emblica Officinalis</div>
+        <div class="ing-origin">Amla · Indian Gooseberry · Himalayan Foothills</div>
+        <p class="ing-desc">One of the most vitamin C-dense plants on earth, amla has anchored Indian hair care for over 3,000 years. It fortifies the hair from root to tip, seals the cuticle against environmental damage, and imparts a natural luminosity that no synthetic shine serum can simulate. The reason Indian hair has been envied across civilisations.</p>
+      </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.08s">
+        <span class="ing-number">05</span>
+        <div class="ing-name">Rosmarinus Officinalis</div>
+        <div class="ing-origin">Rosemary · Steam-Distilled · Ceremonial Grade</div>
+        <p class="ing-desc">Now the subject of landmark clinical research, rosemary oil has been shown to match prescription minoxidil in stimulating hair regrowth — without the side effects. Its ursolic acid increases microcirculation in the scalp, delivering nutrients directly to the follicle. Ancient Mediterranean wisdom, finally validated by modern science.</p>
+      </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.16s">
+        <span class="ing-number">06</span>
+        <div class="ing-name">Bacopa Monnieri</div>
+        <div class="ing-origin">Brahmi · Sacred Herb · Gangetic Plains</div>
+        <p class="ing-desc">Named after Brahma, the Hindu creator deity, Brahmi has been revered in Ayurvedic medicine for over 3,000 years as the herb of intelligence and renewal. Applied to the scalp, its triterpenoid saponins strengthen the hair root, soothe chronic inflammation, and create the calm, nourished scalp environment in which truly beautiful hair is possible.</p>
+      </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.08s">
+        <span class="ing-number">07</span>
+        <div class="ing-name">Hibiscus Rosa-Sinensis</div>
+        <div class="ing-origin">Hibiscus · Flower &amp; Leaf · South India</div>
+        <p class="ing-desc">The flower that Indian women have woven into their hair for generations — not merely for beauty, but for purpose. Hibiscus is rich in amino acids that directly nourish the hair follicle, natural mucilage that seals moisture into every strand, and flavonoids that inhibit the enzyme responsible for hair loss. Beauty and biology in perfect accord.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ VISUAL BREAK ══════════════════════════ -->
+<div class="visual-break">
+  <h2 class="serif" style="font-family:'Cormorant Garamond',serif">Rarity is the Point</h2>
+  <div class="vb-center-text">"Every drop contains a continent."</div>
+</div>
+
+<!-- ═══════════════ PRODUCT ════════════════════════════════ -->
+<section id="product">
+  <div class="container">
+    <div class="product-grid">
+      <div class="product-visual reveal-left">
+        <div class="product-badge">Lusenssual No. 1</div>
+        <div class="placeholder-icon" style="width:100px;height:100px;border-radius:50%;">
+          <svg viewBox="0 0 48 48" width="48" height="48" stroke="rgba(201,169,110,0.5)" fill="none" stroke-width="1">
+            <ellipse cx="24" cy="32" rx="10" ry="12"/>
+            <path d="M14 32 C14 20 18 8 24 4 C30 8 34 20 34 32"/>
+            <line x1="24" y1="4" x2="24" y2="44"/>
+            <ellipse cx="24" cy="44" rx="10" ry="2"/>
+          </svg>
+        </div>
+        <div class="placeholder-label">30ml · Handblown Glass Vessel</div>
+        <div class="product-tagline">Product Image — Coming Soon</div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-eyebrow">The Product</div>
+        <h2>Lusenssual<br><em>No. 1</em></h2>
+        <div class="divider-line"></div>
+        <p class="body-text">
+          A pre-wash ritual oil and finishing serum in one. Apply before washing to protect the hair through cleansing, or use two drops on dry hair for an immediate silk-mirror finish. There is no wrong way to use it. There is only the moment before, and the extraordinary after.
+        </p>
+        <ul class="product-features">
+          <li>30ml in a hand-blown Venetian glass flacon</li>
+          <li>12 botanicals, zero synthetic compounds or silicones</li>
+          <li>Suitable for all hair types, textures, and conditions</li>
+          <li>100% certified vegan &amp; cruelty-free</li>
+          <li>Carbon-neutral shipping in recycled brass packaging</li>
+          <li>Limited production: 500 units per season</li>
+        </ul>
+        <div class="price-block">
+          <div class="price-label">Launch Price — Waitlist Members Only</div>
+          <div class="price-value"><sup>£</sup>185</div>
+          <div class="price-sub">General retail: £240 · Free global shipping at launch</div>
+        </div>
+        <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ═══════════════ PHILOSOPHY ════════════════════════════ -->
+<section id="philosophy">
+  <div class="container">
+    <div class="philosophy-grid">
+      <div class="philosophy-rotated reveal">The Philosophy</div>
+      <div class="phil-text reveal-left" style="transition-delay:0.1s">
+        <div class="section-eyebrow">Our Belief</div>
+        <h2>Luxury is not<br>what you spend.<br>It's what you <em>feel.</em></h2>
+        <div class="divider-line"></div>
+        <p class="body-text">
+          We believe that truly extraordinary beauty is not manufactured — it is remembered. India has carried the most sophisticated hair care tradition in human history for over five thousand years. Ayurveda did not need clinical trials to know that Bhringraj awakens dormant follicles, that Amla seals the cuticle, that Brahmi calms the scalp. It knew because it observed, refined, and passed that knowledge forward across generations with absolute fidelity.
+        </p>
+        <p class="body-text" style="margin-top:20px">
+          LUSENSSUAL is our declaration: that this knowledge deserves the presentation it has always warranted — in a formula of uncompromising purity, in packaging that communicates the value of what it holds, offered to the world not as an exotic curiosity but as the rightful heir to a five-thousand-year-old crown.
+        </p>
+      </div>
+      <div class="phil-aside reveal-right" style="transition-delay:0.15s">
+        <blockquote>"India has always known. The rest of the world is only now beginning to understand."</blockquote>
+        <cite>— Founder's Note, 2026</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ WAITLIST ═══════════════════════════════ -->
+<section id="waitlist">
+  <div class="container">
+    <div class="waitlist-inner">
+      <div class="section-eyebrow reveal" style="text-align:center">Limited Access</div>
+      <h2 class="reveal" style="transition-delay:0.1s">Be Among<br>the <em>First</em></h2>
+      <p class="reveal" style="transition-delay:0.15s">
+        LUSENSSUAL No. 1 launches to waitlist members first — at an exclusive pre-launch price. With only 500 units in our inaugural season, position on the waitlist determines access. Enter your details below.
+      </p>
+
+      <!-- SUCCESS MESSAGE (shown after submit) -->
+      <div class="form-success" id="formSuccess">
+        <h3>You're On the List</h3>
+        <p>Thank you. You will receive a personal confirmation within 24 hours. We look forward to introducing you to the ritual.</p>
+      </div>
+
+      <!-- WAITLIST FORM -->
+      <!-- 
+        HOW THIS WORKS:
+        This form sends data to a Google Apps Script Web App URL.
+        Replace YOUR_GOOGLE_SCRIPT_URL_HERE with the URL you get from Step 3 of the setup guide.
+        The script will save submissions to a Google Sheet AND email you each time.
+      -->
+      <form class="waitlist-form reveal" id="waitlistForm" style="transition-delay:0.2s">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstName" placeholder="Your first name" required>
+          </div>
+          <div class="form-field">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastName" placeholder="Your last name" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <button type="submit" class="form-submit" id="submitBtn">
+          Secure My Place on the Waitlist
+        </button>
+        <p class="form-note">
+          By joining, you agree to receive exclusive communications from LUSENSSUAL. We will never share your information with third parties. You may unsubscribe at any time. View our <a href="#" onclick="openModal('termsModal');return false;" style="color:rgba(201,169,110,0.5);text-decoration:none;border-bottom:1px solid rgba(201,169,110,0.2)">Privacy Policy &amp; Terms</a>.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-logo">Lusenssual</div>
+        <p class="footer-brand-desc">
+          An ultra-premium Ayurvedic hair oil ritual crafted for those who demand the extraordinary. Eighteen botanicals. One perfect formula. Proudly made in India.
+        </p>
+        <p class="footer-brand-desc" style="font-size:10px;letter-spacing:0.1em;margin-bottom:20px">
+          Lusenssual · Made in India · Est. 2026<br>
+          lusenssual@gmail.com
+        </p>
+        <div class="footer-social">
+          <!-- Instagram -->
+          <a href="#" id="social-instagram" class="social-link" title="Instagram" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a href="#" id="social-facebook" class="social-link" title="Facebook" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <!-- Pinterest -->
+          <a href="#" id="social-pinterest" class="social-link" title="Pinterest" aria-label="Pinterest">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.76 1.22-5.17 1.22-5.17s-.31-.63-.31-1.56c0-1.46.85-2.55 1.9-2.55.9 0 1.33.67 1.33 1.48 0 .9-.57 2.25-.87 3.5-.25 1.05.52 1.9 1.54 1.9 1.85 0 3.09-2.37 3.09-5.17 0-2.14-1.44-3.64-3.5-3.64-2.38 0-3.78 1.79-3.78 3.63 0 .72.28 1.49.62 1.91.07.08.08.15.06.23-.06.26-.2.83-.23.95-.04.15-.13.18-.3.11-1.12-.52-1.82-2.17-1.82-3.49 0-2.84 2.06-5.44 5.94-5.44 3.12 0 5.54 2.22 5.54 5.19 0 3.1-1.95 5.59-4.65 5.59-.91 0-1.76-.47-2.05-1.03l-.56 2.08c-.2.78-.75 1.76-1.12 2.36.84.26 1.74.4 2.67.4 5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
+            </svg>
+          </a>
+          <!-- TikTok removed -->
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>The Brand</h4>
+        <ul>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#ritual">The Formula</a></li>
+          <li><a href="#product">The Product</a></li>
+          <li><a href="#philosophy">Our Philosophy</a></li>
+          <li><a href="#waitlist">Join Waitlist</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <ul>
+          <li><a href="mailto:lusenssual@gmail.com">Contact Us</a></li>
+          <li><a href="#" onclick="openModal('termsModal');return false;">Shipping &amp; Returns</a></li>
+          <li><a href="#" onclick="openModal('termsModal');return false;">FAQs</a></li>
+          <li><a href="#" onclick="openModal('termsModal');return false;">Stockist Enquiries</a></li>
+          <li><a href="#" onclick="openModal('termsModal');return false;">Press &amp; Media</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#" onclick="openModal('termsModal');return false;">Terms &amp; Conditions</a></li>
+          <li><a href="#" onclick="openModal('termsModal');return false;">Privacy Policy</a></li>
+          <li><a href="#" onclick="openModal('termsModal');return false;">Cookie Policy</a></li>
+          <li><a href="#" onclick="openModal('termsModal');return false;">Accessibility</a></li>
+          <li><a href="#" onclick="openModal('termsModal');return false;">Sustainability</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Lusenssual. All rights reserved. Proudly formulated in India. Rooted in Ayurveda.</div>
+      <div class="footer-legal-links">
+        <a href="#" onclick="openModal('termsModal');return false;">Terms</a>
+        <a href="#" onclick="openModal('termsModal');return false;">Privacy</a>
+        <a href="#" onclick="openModal('termsModal');return false;">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════ TERMS MODAL ════════════════════════════ -->
+<div class="modal-overlay" id="termsModal" onclick="if(event.target===this)closeModal('termsModal')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('termsModal')">✕</button>
+    <h3>Terms, Conditions &amp; Privacy</h3>
+    <div class="modal-last-updated">Last Updated: 1 January 2025</div>
+
+    <h4>1. Company Information</h4>
+    <p>Lusenssual ("LUSENSSUAL", "we", "our", "us") is a brand established in India in 2026. By accessing or using our website at lusenssual.netlify.app (the "Site"), you agree to be bound by these Terms and Conditions.</p>
+
+    <h4>2. Waitlist &amp; Pre-Launch</h4>
+    <p>The LUSENSSUAL waitlist is a non-binding expression of interest. Placement on the waitlist does not guarantee product availability, nor does it constitute a purchase agreement or contract of sale. Waitlist members will receive priority access and exclusive pre-launch pricing at the sole discretion of LUSENSSUAL. We reserve the right to limit waitlist access, modify launch timelines, and amend pricing without prior notice, save for communications sent directly to registered waitlist members.</p>
+    <p>No payment is required to join the waitlist. Any payment information collected at the point of launch will be handled through a fully PCI-DSS compliant payment processor. LUSENSSUAL does not store payment card data.</p>
+
+    <h4>3. Intellectual Property</h4>
+    <p>All content on this Site — including but not limited to text, graphics, logos, button icons, images, audio clips, digital downloads, and data compilations — is the exclusive property of Lusenssual Ltd. or its content suppliers, and is protected by United Kingdom and international copyright laws. The compilation of all content on this Site is the exclusive property of Lusenssual Ltd. Unauthorised use, reproduction, or distribution of any content from this Site is strictly prohibited.</p>
+    <p>The name "LUSENSSUAL," its logo, and all related marks, designs, and trade dress are trademarks of Lusenssual Ltd. and may not be used in connection with any product or service without our prior written consent.</p>
+
+    <h4>4. Privacy Policy</h4>
+    <p>We are committed to protecting the privacy and security of your personal data. We process your personal data in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
+    <p><strong style="color:var(--cream);font-weight:400">Data We Collect:</strong> When you register for the waitlist, we collect your first name, last name, and email address. We may also collect technical data including your IP address, browser type, and browsing behaviour on our Site via cookies and similar technologies.</p>
+    <p><strong style="color:var(--cream);font-weight:400">How We Use Your Data:</strong> We use your personal data to: (a) place you on our product waitlist; (b) send you communications regarding the product launch, including exclusive pricing and availability; (c) improve our website and user experience; and (d) comply with our legal obligations.</p>
+    <p><strong style="color:var(--cream);font-weight:400">Data Retention:</strong> We will retain your personal data for no longer than is necessary for the purposes for which it was collected, or as required by law. Waitlist data will be retained until 24 months after the date of our official product launch.</p>
+    <p><strong style="color:var(--cream);font-weight:400">Your Rights:</strong> You have the right to access, rectify, or erase your personal data at any time. To exercise any of these rights, please contact us at lusenssual@gmail.com. You also have the right to raise a complaint with the relevant data protection authority in your country of residence if you believe your data has been processed unlawfully.</p>
+    <p><strong style="color:var(--cream);font-weight:400">Third Parties:</strong> We do not sell, trade, or rent your personal information to third parties. We may share your data with trusted service providers who assist us in operating our website and conducting our business, provided those parties agree to keep this information confidential.</p>
+
+    <h4>5. Cookies</h4>
+    <p>Our Site uses cookies and similar tracking technologies to enhance your experience. Strictly necessary cookies are required for the Site to function and cannot be disabled. Analytics cookies help us understand how visitors interact with our Site. By continuing to use our Site, you consent to our use of cookies in accordance with this policy. You may disable cookies at any time through your browser settings, though this may affect certain features of our Site.</p>
+
+    <h4>6. Product Information &amp; Availability</h4>
+    <p>All product descriptions, pricing, and availability information published on this Site are provided in good faith and are believed to be accurate at the time of publication. LUSENSSUAL reserves the right to modify product specifications, pricing, and availability at any time without notice, prior to the formal launch of sale. Product images and visual representations on this Site are for illustrative purposes only and may not exactly represent the final product.</p>
+
+    <h4>7. Shipping &amp; Delivery (At Launch)</h4>
+    <p>At launch, LUSENSSUAL will offer international shipping to select countries. Delivery timescales and applicable shipping costs will be communicated to waitlist members prior to the launch date. Risk in goods passes to the customer upon delivery. For international orders, customers are responsible for any import duties, taxes, or customs charges levied by their country of residence. LUSENSSUAL is not responsible for delays caused by customs procedures.</p>
+
+    <h4>8. Returns &amp; Refunds (At Launch)</h4>
+    <p>In accordance with applicable Indian consumer protection law, customers will have the right to raise a return or refund request within 14 days of receiving their goods, subject to the product being in its original, unopened condition. Refunds will be issued to the original payment method within 14 days of receiving the returned goods. Shipping costs for returns are the responsibility of the customer unless the goods are faulty or were sent in error.</p>
+
+    <h4>9. Limitation of Liability</h4>
+    <p>To the fullest extent permitted by applicable law, LUSENSSUAL excludes all liability for any indirect, special, or consequential losses or damages arising out of or in connection with your use of this Site, including but not limited to loss of income, loss of business, or loss of anticipated savings. Our total liability to you in connection with these Terms shall not exceed £100. Nothing in these Terms shall limit or exclude our liability for death or personal injury caused by our negligence, fraud, or any other liability that cannot be lawfully limited.</p>
+
+    <h4>10. Governing Law</h4>
+    <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of India. Any disputes arising under or in connection with these Terms shall be subject to the jurisdiction of the competent courts of India.</p>
+
+    <h4>11. Changes to These Terms</h4>
+    <p>We reserve the right to modify these Terms at any time. Material changes will be communicated to registered waitlist members by email. Your continued use of the Site following the posting of revised Terms constitutes your acceptance of those changes.</p>
+
+    <h4>12. Contact</h4>
+    <p>For all enquiries regarding these Terms, your personal data, or our products, please contact: lusenssual@gmail.com</p>
+
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+      <button onclick="closeModal('termsModal')" class="btn-primary" style="border:1px solid var(--gold);font-family:var(--ff-sans)">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ SCRIPTS ════════════════════════════════ -->
+<script>
+/* ── VERCEL ANALYTICS CUSTOM EVENTS ────────────────────────
+   window.va() is provided automatically by Vercel.
+   It tracks custom events like waitlist signups so you
+   can see conversions in your Vercel Analytics dashboard.
+   ─────────────────────────────────────────────────────── */
+function trackEvent(name, data) {
+  if (typeof window.va === 'function') {
+    window.va('event', { name: name, ...data });
+  }
+}
+
+/* ── CURSOR ───────────────────────────────────────────────── */
+const dot  = document.getElementById('cursor-dot');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+(function animCursor() {
+  dot.style.left  = mx + 'px';
+  dot.style.top   = my + 'px';
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px';
+  ring.style.top  = ry + 'px';
+  requestAnimationFrame(animCursor);
+})();
+document.addEventListener('mouseleave', () => {
+  dot.style.opacity  = '0';
+  ring.style.opacity = '0';
+});
+document.addEventListener('mouseenter', () => {
+  dot.style.opacity  = '1';
+  ring.style.opacity = '1';
+});
+
+/* ── NAV SCROLL ─────────────────────────────────────────────── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* ── SCROLL REVEAL ──────────────────────────────────────────── */
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const observer  = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+revealEls.forEach(el => observer.observe(el));
+
+/* ── MODAL ───────────────────────────────────────────────────── */
+function openModal(id)  { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open')); document.body.style.overflow = ''; } });
+
+/* ── WAITLIST FORM ─────────────────────────────────────────────
+   This submits to a Google Apps Script Web App.
+   Replace PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE with the URL you
+   get after following the setup guide in the README below.
+   ─────────────────────────────────────────────────────────── */
+const GOOGLE_SCRIPT_URL = 'PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE';
+
+document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+
+  const firstName = document.getElementById('fname').value.trim();
+  const lastName  = document.getElementById('lname').value.trim();
+  const email     = document.getElementById('email').value.trim();
+  const timestamp = new Date().toLocaleString('en-GB', { timeZone: 'UTC' });
+
+  /* If Google Script URL not yet set, show success anyway for testing */
+  if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbyKQUy3OGGFJvAgYDO5pjDqfYpIoKnhk_7wcpk_oVXfm74xwyR7Vs3mH_kfR0wJYbWz/exec') {
+    showSuccess();
+    return;
+  }
+
+  try {
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode:   'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ firstName, lastName, email, timestamp })
+    });
+    showSuccess();
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Secure My Place on the Waitlist';
+    alert('Something went wrong. Please try again or email us at lusenssual@gmail.com');
+  }
+});
+
+function showSuccess() {
+  document.getElementById('waitlistForm').style.display  = 'none';
+  document.getElementById('formSuccess').style.display   = 'block';
+  // 🎯 This tells Vercel Analytics someone joined the waitlist
+  trackEvent('Waitlist Signup');
+}
+</script>
+
+</body>
+</html>
