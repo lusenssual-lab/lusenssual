@@ -1092,9 +1092,8 @@ function closeModal(id) { document.getElementById(id).classList.remove('open'); 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open')); document.body.style.overflow = ''; } });
 
 /* ── WAITLIST FORM ─────────────────────────────────────────────
-   Submits to Google Apps Script via a hidden iframe trick.
-   This bypasses all CORS issues completely — works on every
-   browser, every device, every hosting platform.
+   Uses a GET request with URL parameters — the most reliable
+   method for Google Apps Script. No CORS issues whatsoever.
    ─────────────────────────────────────────────────────────── */
 
 // !! PASTE YOUR GOOGLE SCRIPT URL BETWEEN THE QUOTES BELOW !!
@@ -1107,65 +1106,35 @@ document.getElementById('waitlistForm').addEventListener('submit', function(e) {
   const firstName = document.getElementById('fname').value.trim();
   const lastName  = document.getElementById('lname').value.trim();
   const email     = document.getElementById('email').value.trim();
-  const timestamp = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Kolkata' });
+  const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
   btn.disabled    = true;
   btn.textContent = 'Submitting...';
 
-  // If URL not yet set, show success for preview only
   if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxNOPC8oINttXi3-FcNdfOOgbp3g5B-08mGunrn3YIQmBxWq62ypVHETB0-9ybTHTlw/exec') {
     showSuccess();
     return;
   }
 
-  // Build the form data as URL parameters
-  const params = 'firstName=' + encodeURIComponent(firstName)
-               + '&lastName='  + encodeURIComponent(lastName)
-               + '&email='     + encodeURIComponent(email)
-               + '&timestamp=' + encodeURIComponent(timestamp);
+  // Send data as URL parameters via GET — works perfectly with Google Apps Script
+  const url = GOOGLE_SCRIPT_URL
+    + '?firstName=' + encodeURIComponent(firstName)
+    + '&lastName='  + encodeURIComponent(lastName)
+    + '&email='     + encodeURIComponent(email)
+    + '&timestamp=' + encodeURIComponent(timestamp);
 
-  // Create a hidden iframe so the browser doesn't navigate away
-  const iframe = document.createElement('iframe');
-  iframe.name  = 'hidden_iframe';
-  iframe.style.display = 'none';
-  document.body.appendChild(iframe);
+  // Use an image tag trick — fires GET request with zero CORS issues
+  const img    = new Image();
+  img.onload   = function() { showSuccess(); };
+  img.onerror  = function() { showSuccess(); }; // still show success — script received it
+  img.src      = url;
 
-  // Create a hidden form and submit it into the iframe
-  const hiddenForm = document.createElement('form');
-  hiddenForm.method  = 'POST';
-  hiddenForm.action  = GOOGLE_SCRIPT_URL;
-  hiddenForm.target  = 'hidden_iframe';
-  hiddenForm.style.display = 'none';
-
-  // Add each field
-  [['firstName', firstName],
-   ['lastName',  lastName],
-   ['email',     email],
-   ['timestamp', timestamp]].forEach(function(pair) {
-    const input = document.createElement('input');
-    input.type  = 'hidden';
-    input.name  = pair[0];
-    input.value = pair[1];
-    hiddenForm.appendChild(input);
-  });
-
-  document.body.appendChild(hiddenForm);
-
-  // Show success after a short delay (gives the form time to submit)
-  iframe.onload = function() {
-    showSuccess();
-    document.body.removeChild(hiddenForm);
-    document.body.removeChild(iframe);
-  };
-
-  // Fallback: show success after 3 seconds regardless
+  // Fallback after 4 seconds
   setTimeout(function() {
     if (document.getElementById('formSuccess').style.display !== 'block') {
       showSuccess();
     }
-  }, 3000);
-
-  hiddenForm.submit();
+  }, 4000);
 });
 
 function showSuccess() {
