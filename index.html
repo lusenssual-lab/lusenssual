@@ -1,10 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUSENSSUAL — Rare Hair Oil</title>
-<meta name="description" content="LUSENSSUAL is an ultra-premium hair oil ritual crafted for those who demand the extraordinary. Join the exclusive waitlist.">
+
+<!-- ═══ PRIMARY SEO TAGS ════════════════════════════════════ -->
+<title>LUSENSSUAL — Rare Ayurvedic Hair Oil | Made in India</title>
+<meta name="description" content="LUSENSSUAL is an ultra-premium Ayurvedic hair oil made from 18 rare cold-pressed botanicals. Proudly made in India. Join the exclusive waitlist for founding member access.">
+<meta name="keywords" content="LUSENSSUAL, luxury hair oil, Ayurvedic hair oil, premium hair oil India, rare hair oil, cold pressed hair oil, bhringraj oil, amla hair oil, best hair oil India, Ayurvedic hair care">
+<meta name="author" content="LUSENSSUAL">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lusenssual.vercel.app/">
+
+<!-- ═══ OPEN GRAPH (WhatsApp, Facebook previews) ════════════ -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lusenssual.vercel.app/">
+<meta property="og:title" content="LUSENSSUAL — Rare Ayurvedic Hair Oil | Made in India">
+<meta property="og:description" content="18 rare Ayurvedic botanicals. Cold-pressed. Unrefined. No synthetics. Join the exclusive waitlist for founding member access.">
+<meta property="og:image" content="https://lusenssual.vercel.app/og-image.jpg">
+<meta property="og:site_name" content="LUSENSSUAL">
+<meta property="og:locale" content="en_IN">
+
+<!-- ═══ TWITTER CARD ════════════════════════════════════════ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LUSENSSUAL — Rare Ayurvedic Hair Oil">
+<meta name="twitter:description" content="18 rare Ayurvedic botanicals. Cold-pressed. Unrefined. Join the exclusive waitlist.">
+<meta name="twitter:image" content="https://lusenssual.vercel.app/og-image.jpg">
+
+<!-- ═══ STRUCTURED DATA (tells Google exactly what you are) ═ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "LUSENSSUAL",
+  "url": "https://lusenssual.vercel.app",
+  "logo": "https://lusenssual.vercel.app/og-image.jpg",
+  "description": "Ultra-premium Ayurvedic hair oil made from 18 rare cold-pressed botanicals. Proudly made in India.",
+  "foundingDate": "2026",
+  "foundingLocation": "India",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "lusenssual@gmail.com",
+    "contactType": "customer service"
+  },
+  "sameAs": [
+    "https://instagram.com/lusenssual",
+    "https://facebook.com/lusenssual"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "LUSENSSUAL No. 1 — Rare Ayurvedic Hair Oil",
+  "description": "An ultra-premium hair oil ritual made from 18 rare Ayurvedic botanicals including Bhringraj, Amla, Brahmi, Hibiscus, Rosemary, Coconut and Onion. Cold-pressed, unrefined, zero synthetic compounds.",
+  "brand": {
+    "@type": "Brand",
+    "name": "LUSENSSUAL"
+  },
+  "manufacturer": {
+    "@type": "Organization",
+    "name": "LUSENSSUAL",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN"
+    }
+  },
+  "category": "Hair Care",
+  "countryOfOrigin": "IN",
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/PreOrder",
+    "priceCurrency": "INR",
+    "seller": {
+      "@type": "Organization",
+      "name": "LUSENSSUAL"
+    }
+  }
+}
+</script>
 
 <!-- ═══ VERCEL ANALYTICS ══════════════════════════════════════
      No setup needed. No tracking ID. No configuration.
@@ -303,7 +379,6 @@
   .ritual-header h2 { max-width: 640px; margin: 0 auto 24px; }
   .ritual-header p { max-width: 480px; margin: 0 auto; font-size: 13px; color: var(--muted); line-height: 2; }
   .ingredients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
-  .ingredients-grid .ingredient-card:last-child { grid-column: 2 / 3; }
   .ingredient-card {
     background: var(--offblk); padding: 52px 40px;
     transition: background 0.4s ease;
@@ -608,7 +683,7 @@
 <div id="cursor-ring"></div>
 
 <!-- ═══════════════ NAV ═══════════════════════════════════ -->
-<nav id="mainNav">
+<nav id="mainNav" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="#" class="nav-logo">Lusenssual</a>
     <div class="nav-links">
@@ -622,7 +697,8 @@
 </nav>
 
 <!-- ═══════════════ HERO ═══════════════════════════════════ -->
-<section id="hero">
+<main>
+<section id="hero" aria-label="Hero — LUSENSSUAL Rare Ayurvedic Hair Oil">
   <div class="hero-bg"></div>
   <div class="container">
     <div class="hero-grid">
@@ -694,7 +770,7 @@
 </div>
 
 <!-- ═══════════════ ABOUT ══════════════════════════════════ -->
-<section id="about">
+<section id="about" aria-label="About LUSENSSUAL — Origin Story">
   <div class="container">
     <div class="about-grid">
       <div class="about-visual reveal-left">
@@ -722,11 +798,11 @@
 </section>
 
 <!-- ═══════════════ RITUAL / INGREDIENTS ══════════════════ -->
-<section id="ritual">
+<section id="ritual" aria-label="The Formula — 7 Key Ayurvedic Botanicals">
   <div class="container">
     <div class="ritual-header reveal">
       <div class="section-eyebrow" style="text-align:center">The Formula</div>
-      <h2>Seven Botanicals.<br>One <em>Transformative</em> Result.</h2>
+      <h2>Eighteen Botanicals.<br>One <em>Transformative</em> Result.</h2>
       <p>Every ingredient is selected for a singular purpose. Nothing decorative. Nothing superfluous. Each element earns its place through thousands of years of Ayurvedic wisdom and modern clinical validation.</p>
     </div>
     <div class="ingredients-grid">
@@ -772,6 +848,72 @@
         <div class="ing-origin">Hibiscus · Flower &amp; Leaf · South India</div>
         <p class="ing-desc">The flower that Indian women have woven into their hair for generations — not merely for beauty, but for purpose. Hibiscus is rich in amino acids that directly nourish the hair follicle, natural mucilage that seals moisture into every strand, and flavonoids that inhibit the enzyme responsible for hair loss. Beauty and biology in perfect accord.</p>
       </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.0s">
+        <span class="ing-number">08</span>
+        <div class="ing-name">Trigonella Foenum-Graecum</div>
+        <div class="ing-origin">Fenugreek (Methi) · Seed Extract · Central India</div>
+        <p class="ing-desc">Rich in folic acid and vitamins A, K, and C, fenugreek has been a staple in Ayurvedic hair care for centuries. Its high mucilage content provides exceptional slip and conditioning, while its proteins fortify the hair shaft against breakage.</p>
+      </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.08s">
+        <span class="ing-number">09</span>
+        <div class="ing-name">Murraya Koenigii</div>
+        <div class="ing-origin">Curry Leaf · Leaf Extract · Subtropical India</div>
+        <p class="ing-desc">A potent source of beta-carotene and proteins, curry leaves are traditionally used to prevent premature greying and stimulate new hair growth. They rejuvenate the hair follicles and clear the scalp of dead skin build-up.</p>
+      </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.16s">
+        <span class="ing-number">10</span>
+        <div class="ing-name">Azadirachta Indica</div>
+        <div class="ing-origin">Neem · Leaf &amp; Seed Extract · Indian Subcontinent</div>
+        <p class="ing-desc">Revered as the 'village pharmacy,' neem possesses unmatched antibacterial and antifungal properties. It deeply purifies the scalp, eliminating dandruff and creating an optimal, inflammation-free environment for healthy hair growth.</p>
+      </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.0s">
+        <span class="ing-number">11</span>
+        <div class="ing-name">Acacia Concinna</div>
+        <div class="ing-origin">Shikakai · Fruit Pod Extract · Central India</div>
+        <p class="ing-desc">Literally translating to 'fruit for hair,' shikakai is a natural, mild cleanser that retains the scalp's natural oils. Its low pH balances the scalp, while its vitamins promote softness and untangle the hair naturally.</p>
+      </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.08s">
+        <span class="ing-number">12</span>
+        <div class="ing-name">Lawsonia Inermis</div>
+        <div class="ing-origin">Henna · Leaf Extract · Rajasthan, India</div>
+        <p class="ing-desc">Beyond its use as a natural dye, henna is a powerful conditioning agent. It binds to the keratin in hair, filling in damaged areas of the cuticle, resulting in thicker, stronger, and more resilient strands.</p>
+      </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.16s">
+        <span class="ing-number">13</span>
+        <div class="ing-name">Cyperus Scariosus</div>
+        <div class="ing-origin">Nagarmotha · Root Extract · Madhya Pradesh, India</div>
+        <p class="ing-desc">Known for its deep, earthy aroma, Nagarmotha regulates sebum production on the scalp. It prevents the roots from becoming overly oily or excessively dry, maintaining perfect equilibrium for sustained hair health.</p>
+      </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.0s">
+        <span class="ing-number">14</span>
+        <div class="ing-name">Aloe Barbadensis</div>
+        <div class="ing-origin">Aloe Vera · Leaf Gel Extract · Arid Regions, India</div>
+        <p class="ing-desc">A supreme hydrator, aloe vera soothes the scalp and conditions the hair. Its proteolytic enzymes repair dead skin cells on the scalp, while its chemical makeup, similar to that of keratin, deeply rejuvenates the hair.</p>
+      </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.08s">
+        <span class="ing-number">15</span>
+        <div class="ing-name">Nardostachys Jatamansi</div>
+        <div class="ing-origin">Jatamansi · Root Extract · Himalayas</div>
+        <p class="ing-desc">Found at high altitudes, Jatamansi is celebrated in Ayurveda for its calming properties. When applied to the scalp, it reduces stress-induced hair fall, prolongs the hair's growth phase, and imparts a natural darkening effect.</p>
+      </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.16s">
+        <span class="ing-number">16</span>
+        <div class="ing-name">Aegle Marmelos</div>
+        <div class="ing-origin">Bael · Fruit &amp; Leaf Extract · Native to India</div>
+        <p class="ing-desc">Sacred in Hindu tradition, Bael is rich in tannins and flavonoids. It strengthens the hair roots and provides antimicrobial benefits, ensuring the scalp remains resilient against environmental stressors.</p>
+      </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.0s">
+        <span class="ing-number">17</span>
+        <div class="ing-name">Ocimum Tenuiflorum</div>
+        <div class="ing-origin">Tulsi (Holy Basil) · Leaf Extract · Across India</div>
+        <p class="ing-desc">An adaptogenic powerhouse, Tulsi improves blood circulation to the scalp. Its cooling properties soothe itchiness, while its antioxidants protect the hair follicles from oxidative stress and premature aging.</p>
+      </div>
+      <div class="ingredient-card reveal" style="transition-delay:0.08s">
+        <span class="ing-number">18</span>
+        <div class="ing-name">Cinnamomum Camphora</div>
+        <div class="ing-origin">Camphor · Distilled Extract · Southern India</div>
+        <p class="ing-desc">Providing an immediate cooling sensation, camphor stimulates blood flow to the hair roots. It acts as a powerful antiseptic, clarifying the scalp and enhancing the absorption of the other botanical actives.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -796,7 +938,7 @@
             <ellipse cx="24" cy="44" rx="10" ry="2"/>
           </svg>
         </div>
-        <div class="placeholder-label">30ml · Handblown Glass Vessel</div>
+        <div class="placeholder-label">100ml · Amber Apothecary Glass Vessel</div>
         <div class="product-tagline">Product Image — Coming Soon</div>
       </div>
       <div class="reveal-right">
@@ -807,17 +949,17 @@
           A pre-wash ritual oil and finishing serum in one. Apply before washing to protect the hair through cleansing, or use two drops on dry hair for an immediate silk-mirror finish. There is no wrong way to use it. There is only the moment before, and the extraordinary after.
         </p>
         <ul class="product-features">
-          <li>30ml in a hand-blown Venetian glass flacon</li>
-          <li>12 botanicals, zero synthetic compounds or silicones</li>
+          <li>100ml in a minimalist amber apothecary glass vessel</li>
+          <li>18 botanicals, zero synthetic compounds or silicones</li>
           <li>Suitable for all hair types, textures, and conditions</li>
           <li>100% certified vegan &amp; cruelty-free</li>
-          <li>Carbon-neutral shipping in recycled brass packaging</li>
+          <li>Sustainable, plastic-free editorial packaging</li>
           <li>Limited production: 500 units per season</li>
         </ul>
         <div class="price-block">
           <div class="price-label">Launch Price — Waitlist Members Only</div>
-          <div class="price-value"><sup>£</sup>185</div>
-          <div class="price-sub">General retail: £240 · Free global shipping at launch</div>
+          <div class="price-value"><sup>₹</sup>1,850</div>
+          <div class="price-sub">General retail: ₹2,400 · Free shipping across India</div>
         </div>
         <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
       </div>
@@ -852,7 +994,7 @@
 </section>
 
 <!-- ═══════════════ WAITLIST ═══════════════════════════════ -->
-<section id="waitlist">
+<section id="waitlist" aria-label="Join the LUSENSSUAL Waitlist">
   <div class="container">
     <div class="waitlist-inner">
       <div class="section-eyebrow reveal" style="text-align:center">Limited Access</div>
@@ -899,6 +1041,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ═══════════════ FOOTER ═════════════════════════════════ -->
 <footer>
@@ -987,18 +1131,18 @@
     <div class="modal-last-updated">Last Updated: 1 January 2025</div>
 
     <h4>1. Company Information</h4>
-    <p>Lusenssual ("LUSENSSUAL", "we", "our", "us") is a brand established in India in 2026. By accessing or using our website at lusenssual.netlify.app (the "Site"), you agree to be bound by these Terms and Conditions.</p>
+    <p>Lusenssual ("LUSENSSUAL", "we", "our", "us") is a brand established in India in 2026. By accessing or using our website at lusenssual.vercel.app (the "Site"), you agree to be bound by these Terms and Conditions.</p>
 
     <h4>2. Waitlist &amp; Pre-Launch</h4>
     <p>The LUSENSSUAL waitlist is a non-binding expression of interest. Placement on the waitlist does not guarantee product availability, nor does it constitute a purchase agreement or contract of sale. Waitlist members will receive priority access and exclusive pre-launch pricing at the sole discretion of LUSENSSUAL. We reserve the right to limit waitlist access, modify launch timelines, and amend pricing without prior notice, save for communications sent directly to registered waitlist members.</p>
     <p>No payment is required to join the waitlist. Any payment information collected at the point of launch will be handled through a fully PCI-DSS compliant payment processor. LUSENSSUAL does not store payment card data.</p>
 
     <h4>3. Intellectual Property</h4>
-    <p>All content on this Site — including but not limited to text, graphics, logos, button icons, images, audio clips, digital downloads, and data compilations — is the exclusive property of Lusenssual Ltd. or its content suppliers, and is protected by United Kingdom and international copyright laws. The compilation of all content on this Site is the exclusive property of Lusenssual Ltd. Unauthorised use, reproduction, or distribution of any content from this Site is strictly prohibited.</p>
+    <p>All content on this Site — including but not limited to text, graphics, logos, button icons, images, audio clips, digital downloads, and data compilations — is the exclusive property of Lusenssual or its content suppliers, and is protected by Indian and international copyright laws. The compilation of all content on this Site is the exclusive property of Lusenssual. Unauthorised use, reproduction, or distribution of any content from this Site is strictly prohibited.</p>
     <p>The name "LUSENSSUAL," its logo, and all related marks, designs, and trade dress are trademarks of Lusenssual Ltd. and may not be used in connection with any product or service without our prior written consent.</p>
 
     <h4>4. Privacy Policy</h4>
-    <p>We are committed to protecting the privacy and security of your personal data. We process your personal data in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
+    <p>We are committed to protecting the privacy and security of your personal data. We process your personal data in accordance with the Digital Personal Data Protection Act, 2023 (India).</p>
     <p><strong style="color:var(--cream);font-weight:400">Data We Collect:</strong> When you register for the waitlist, we collect your first name, last name, and email address. We may also collect technical data including your IP address, browser type, and browsing behaviour on our Site via cookies and similar technologies.</p>
     <p><strong style="color:var(--cream);font-weight:400">How We Use Your Data:</strong> We use your personal data to: (a) place you on our product waitlist; (b) send you communications regarding the product launch, including exclusive pricing and availability; (c) improve our website and user experience; and (d) comply with our legal obligations.</p>
     <p><strong style="color:var(--cream);font-weight:400">Data Retention:</strong> We will retain your personal data for no longer than is necessary for the purposes for which it was collected, or as required by law. Waitlist data will be retained until 24 months after the date of our official product launch.</p>
@@ -1018,7 +1162,7 @@
     <p>In accordance with applicable Indian consumer protection law, customers will have the right to raise a return or refund request within 14 days of receiving their goods, subject to the product being in its original, unopened condition. Refunds will be issued to the original payment method within 14 days of receiving the returned goods. Shipping costs for returns are the responsibility of the customer unless the goods are faulty or were sent in error.</p>
 
     <h4>9. Limitation of Liability</h4>
-    <p>To the fullest extent permitted by applicable law, LUSENSSUAL excludes all liability for any indirect, special, or consequential losses or damages arising out of or in connection with your use of this Site, including but not limited to loss of income, loss of business, or loss of anticipated savings. Our total liability to you in connection with these Terms shall not exceed £100. Nothing in these Terms shall limit or exclude our liability for death or personal injury caused by our negligence, fraud, or any other liability that cannot be lawfully limited.</p>
+    <p>To the fullest extent permitted by applicable law, LUSENSSUAL excludes all liability for any indirect, special, or consequential losses or damages arising out of or in connection with your use of this Site, including but not limited to loss of income, loss of business, or loss of anticipated savings. Our total liability to you in connection with these Terms shall not exceed ₹1,850. Nothing in these Terms shall limit or exclude our liability for death or personal injury caused by our negligence, fraud, or any other liability that cannot be lawfully limited.</p>
 
     <h4>10. Governing Law</h4>
     <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of India. Any disputes arising under or in connection with these Terms shall be subject to the jurisdiction of the competent courts of India.</p>
@@ -1143,7 +1287,7 @@ document.getElementById('waitlistForm').addEventListener('submit', function(e) {
 
 // Save to Google Sheet via Apps Script (backup data capture)
 function saveToSheet(firstName, lastName, email, timestamp) {
-  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzHE22vp3ZMij3gJNCV-RBcctgNslbYuDK9QLxvTk6cz9H__namKLsDuBM4TbM2QVFa/exec';
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxNOPC8oINttXi3-FcNdfOOgbp3g5B-08mGunrn3YIQmBxWq62ypVHETB0-9ybTHTlw/exec';
   if (SHEET_URL.includes('PLACEHOLDER')) return; // skip if not set
   const url = SHEET_URL
     + '?firstName=' + encodeURIComponent(firstName)
