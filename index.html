@@ -194,10 +194,12 @@
   /* ─── NAV ────────────────────────────────────────────── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 9000;
-    padding: 24px 0;
-    transition: background 0.4s ease, padding 0.4s ease;
+    padding: 4px 0;
+    background: rgba(10,10,8,0.98);
+    backdrop-filter: blur(12px);
+    transition: padding 0.4s ease;
   }
-  nav.scrolled { background: rgba(10,10,8,0.92); backdrop-filter: blur(12px); padding: 16px 0; }
+  nav.scrolled { background: rgba(10,10,8,0.98); backdrop-filter: blur(12px); padding: 4px 0; }
   .nav-inner {
     display: flex; align-items: center; justify-content: space-between;
   }
@@ -688,7 +690,7 @@
 <nav id="mainNav" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="#" class="nav-logo">
-      <img src="logo.png" alt="LUSENSSUAL — Refined" style="height:38px;width:auto;display:block;">
+      <img src="logo.png" alt="LUSENSSUAL — Refined" style="height:90px;width:auto;display:block;margin-left:-28px;">
     </a>
     <div class="nav-links">
       <a href="#about">The Oil</a>
